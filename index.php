@@ -20,32 +20,22 @@
                     <div class="card bg-dark">
                         <div class="row mt-0">
                             <div class="col-md-12 ">
-                                <h4 class=""> SMS Mailer💌</h4>
-<!--CODE TO SEND SMS-->  
-<?php
-if(isset($_POST['submit'])){
-    $baseurl = "https://api.mobitechtechnologies.com/sms/sendsms";
-    $ch = curl_init($baseurl);
-    $data = array(
-        "mobile" => $_POST['phone'],
-        "response_type" => "json",
-        "sender_name" => "23107",
-        "service_id" => 0,
-        "message" => $_POST['message'],
-    );
-    $payload = json_encode($data);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json', 'h_api_key:2b0ed0557644f9aa49f40b11f20063a55f741a3ca92bf5a6b51b781107456554'));
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    $result = json_encode(curl_exec($ch));
-    echo $result;    
-    curl_close($ch);
-}
-?>
-<!--CODE TO SEND SMS-->
+                                <h4 class=""> Email Mailer💌</h4>
                                 </div>
                         </div>
                         <div class="form-group row mb-3">
+                            <div class="col-md-12 mb-0">
+                                <p class="mb-1">Fullname</p> <input id="e-mail" type="text" placeholder="Enter your full name" name="name" class="form-control input-box rm-border">
+                            </div>
+
+                            <div class="col-md-12 mb-0">
+                                <p class="mb-1">Email Address</p> <input id="e-mail" type="text" placeholder="Enter your email address" name="email" class="form-control input-box rm-border">
+                            </div>
+
+                            <div class="col-md-12 mb-0">
+                                <p class="mb-1">Subject</p> <input id="e-mail" type="text" placeholder="Enter subject here" name="subject" class="form-control input-box rm-border">
+                            </div>
+                            
                             <div class="col-md-12 mb-0">
                                 <p class="mb-1">Phone</p> <input id="e-mail" type="text" placeholder="Enter your phone" name="phone" class="form-control input-box rm-border">
                             </div>
