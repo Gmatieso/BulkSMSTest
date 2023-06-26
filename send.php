@@ -13,8 +13,28 @@ if(isset($_POST["send"])){
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
     $mail->Username = 'matiesogeoffrey@gmail.com';
-    $mail->Password ='';
+    $mail->Password ='kuxvnngviycnnzke';
+    $mail->SMTPSecure = "tls";
+    $mail->Port = 587;
 
 
+    $mail->setFrom('matiesogeoffrey@gmail.com');
+    $mail->addAddress($_POST["email"]);
+
+    $mail->isHTML(true);
+
+
+    $mail->Subject =$_POST["subject"];
+    $mail->Body = $_POST["message"];
+
+    $mail->send();
+
+    // echo
+    // "
+    // <script>
+    // alert('Sent Successfully');
+    // document.location.href= 'index.php' ;
+    // </script>
+    // "
 }
 ?>
